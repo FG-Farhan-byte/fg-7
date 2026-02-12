@@ -1,0 +1,7 @@
+{
+  "name": "Farhan Ahmad Portfolio",
+  "description": "A high-end, minimalist dark luxury portfolio for a digital designer with a cinematic and futuristic feel.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
