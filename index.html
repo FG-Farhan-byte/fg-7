@@ -1,24 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Farhan Ahmad | Digital Designer</title>
+    <title>Farhan Ahmad | Digital Designer Portfolio</title>
+    <meta name="description" content="High-end, minimalist dark luxury portfolio for Farhan Ahmad - Digital Designer based in Nepal. Cinematic and futuristic feel.">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['Playfair Display', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              accent: '#7F5AF0',
+              primary: '#F2F2F2',
+              secondary: '#9A9A9A',
+              dark: '#0B0B0D',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
+      :root {
+        --bg-color: #0B0B0D;
+        --accent-color: #7F5AF0;
+        --text-primary: #F2F2F2;
+        --text-secondary: #9A9A9A;
+      }
+
       body {
-        background-color: #0B0B0D;
-        color: #F2F2F2;
+        background-color: var(--bg-color);
+        color: var(--text-primary);
         font-family: 'Inter', sans-serif;
         overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        animation: pageFadeIn 1.5s ease-out forwards;
       }
-      .font-serif {
-        font-family: 'Playfair Display', serif;
+
+      @keyframes pageFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
       }
+
       ::-webkit-scrollbar {
         width: 6px;
       }
@@ -26,38 +63,34 @@
         background: #0B0B0D;
       }
       ::-webkit-scrollbar-thumb {
-        background: #1F1F23;
+        background: #1B1B1F;
         border-radius: 10px;
       }
-      .grain {
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        opacity: 0.04;
-        pointer-events: none;
-        background-image: url("https://www.transparenttextures.com/patterns/p6.png");
-        z-index: 50;
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-color);
       }
-      @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
+
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #1B1B1F #0B0B0D;
       }
-      .float-animation {
-        animation: float 6s ease-in-out infinite;
+
+      #root {
+        min-height: 100vh;
       }
     </style>
   <script type="importmap">
 {
   "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4"
+    "react/": "https://esm.sh/react@^19.2.4/"
   }
 }
 </script>
 </head>
   <body>
-    <div class="grain"></div>
     <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>

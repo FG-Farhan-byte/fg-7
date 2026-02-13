@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Hero: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   const socials = [
     { name: 'Instagram', url: 'https://instagram.com/fg_farhan07' },
     { name: 'TikTok', url: 'https://www.tiktok.com/@fg_farhan07' },
@@ -12,16 +19,16 @@ const Hero: React.FC = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24">
       <div className="lg:col-span-7 flex flex-col justify-center">
-        <span className="text-[10px] tracking-[0.4em] text-[#9A9A9A] uppercase mb-12 block">
+        <span className={`text-[10px] tracking-[0.4em] text-[#9A9A9A] uppercase mb-12 block transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           Freelance — Based in Nepal
         </span>
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-[#F2F2F2] leading-[1.1] mb-12">
+        <h1 className={`text-5xl md:text-7xl lg:text-8xl font-serif text-[#F2F2F2] leading-[1.1] mb-12 transition-all duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           Farhan Ahmad<br />
           <span className="italic text-[#7F5AF0] opacity-90 block lg:inline-block">Digital Designer</span>
         </h1>
 
-        <div className="max-w-xl">
+        <div className={`max-w-xl transition-all duration-1000 delay-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <p className="text-lg md:text-xl text-[#9A9A9A] leading-relaxed mb-12">
             Freelance digital designer based in Nepal who loves to craft brands & attractive experiences for the brands. Worked as YouTuber for 4 years. Professional work in graphic designing and short video editing.
           </p>
@@ -43,7 +50,7 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="lg:col-span-5 relative mt-12 lg:mt-0">
-        <div className="aspect-[4/5] w-full overflow-hidden rounded-[18px] border border-white/5 relative group">
+        <div className={`aspect-[4/5] w-full overflow-hidden rounded-[18px] border border-white/5 relative group transition-all duration-1000 delay-700 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <img 
             src="https://i.ibb.co/KcBs2dtw/H-Copy.png" 
             alt="Farhan Ahmad" 
